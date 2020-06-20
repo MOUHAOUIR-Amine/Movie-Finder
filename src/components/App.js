@@ -3,14 +3,16 @@ import Header from "./Header"
 import Footer from './Footer';
 import Search from './Search';
 import MovieList from './MovieList';
-import Movie from './Movie';
+import MovieInfo from './MovieInfo';
+
 
 class App extends Component {
   constructor(){
     super()
     this.state={
       movies:[],
-      searchTerm:''
+      searchTerm:'',
+      currentMovie:null
     }
   }
 
@@ -28,18 +30,38 @@ class App extends Component {
 
 // handleChange function
 handleChange=(event) => {
-  this.setState({searchTerm:event.target.value})
-  
-  
+  this.setState({searchTerm:event.target.value})  
 }
+
+//afficher movie datails
+viewMovieInfo =(id) =>{
+  const filteredMovie = this.state.movies.filter(movie =>movie.id == id)
+  const newCurrentMovie=filteredMovie.length>0 ? filteredMovie[0]:null
+  this.setState({currentMovie:filteredMovie})
+}
+
+CloseMovieInfo=() =>{
+  this.setState({currentMovie:null})
+}
+
+
+
+
+
+
+
 
   render(){
     return (
       <div className="App">
         <Header />
-        <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-        <MovieList movies={this.state.movies} />
-       
+        {this.state.currentMovie==null ?
+          <div>  
+            <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+            <MovieList viewMovieInfo={this.viewMovieInfo} movies={this.state.movies} />
+          </div>
+          : <MovieInfo CloseMovieInfo={this.CloseMovieInfo} />
+        }
         <Footer />
       </div>
     );
@@ -47,3 +69,4 @@ handleChange=(event) => {
 }
 
 export default App;
+

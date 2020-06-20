@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Link from '@material-ui/core/Link';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -65,21 +66,22 @@ function Movie(props){
                     {props.name}    
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  ID: {props.id}
+                {props.language}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                     Type : {props.type}
                 </Typography>
-                <Typography variant="body2" gutterBottom>
-                    Language : {props.language}
-                </Typography>
+                
                 <Typography variant="body2" gutterBottom>
                     Premiered: {props.premiered}
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }} color="primary">
-                  -> More details
+                <Typography variant="body2" style={{ cursor: 'pointer' }} color="primary" >
+                -> 
+                    <Link href="#" onClick={()=> props.viewMovieInfo(props.movieId)}>
+                          More details
+                    </Link>
                 </Typography>
               </Grid>
             </Grid>

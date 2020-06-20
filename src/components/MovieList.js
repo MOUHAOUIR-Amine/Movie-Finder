@@ -11,9 +11,10 @@ function MovieList(props){
                     <Movie 
 
                     key={movie.show.id} 
+                    viewMovieInfo={props.viewMovieInfo}
                     image={movie.show.image} 
                     name={movie.show.name} 
-                    id={movie.show.id} 
+                    movieId={movie.show.id} 
                     rating={movie.show.rating}
                     type={movie.show.type}
                     language={movie.show.language}

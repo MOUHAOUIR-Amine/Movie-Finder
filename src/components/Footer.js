@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
   footer: {
     padding: theme.spacing(2, 1),
-    marginTop: 430,
+    marginTop: 440,
     backgroundColor: '#8b6b61',
     color: 'white'
         },

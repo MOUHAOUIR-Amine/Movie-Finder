@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core'
 
 function Search(props){
     return (
-       <div style={{marginLeft:"550px",marginTop:"150px"}}>
+       <div style={{marginLeft:"550px",marginTop:"15px"}}>
        
         <Container>
           <Row>

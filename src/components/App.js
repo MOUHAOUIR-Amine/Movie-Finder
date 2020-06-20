@@ -20,7 +20,7 @@ class App extends Component {
   handleSubmit=(event) => {
     event.preventDefault();
 
-    fetch('https://api.tvmaze.com/search/shows?q=test&query=$(this.state.searchTerm)')
+    fetch('https://api.tvmaze.com/search/shows?q='+this.state.searchTerm)
     .then(data => data.json())
     .then(data => {
       console.log(data);

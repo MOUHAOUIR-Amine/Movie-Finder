@@ -11,8 +11,10 @@ function Search(props){
           <Row>
             <form  noValidate autoComplete="off" onSubmit={props.handleSubmit}>
                 <Input placeholder="Search Movie" onChange={props.handleChange} />
-                <Button  variant="outlined" size="large"  >
-                    
+                <Button  variant="outlined" size="large" onClick={props.handleSubmit} >
+                    <Typography variant="h6" color="inherit">
+                        Find
+                    </Typography>
                 </Button>
             </form>
           </Row>

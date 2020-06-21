@@ -78,9 +78,9 @@ function Movie(props){
               </Grid>
               <Grid item>
                 <Typography variant="body2" style={{ cursor: 'pointer' }} color="primary" >
-                -> 
+               
                     <Link href="#" onClick={()=> props.viewMovieInfo(props.movieId)}>
-                          More details
+                    <i class="fas fa-forward"></i> More details 
                     </Link>
                 </Typography>
               </Grid>

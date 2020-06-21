@@ -35,20 +35,14 @@ handleChange=(event) => {
 
 //afficher movie datails
 viewMovieInfo =(id) =>{
-  const filteredMovie = this.state.movies.filter(movie =>movie.id == id)
+  const filteredMovie = this.state.movies.filter(movie =>movie.show.id == id)
   const newCurrentMovie=filteredMovie.length>0 ? filteredMovie[0]:null
-  this.setState({currentMovie:filteredMovie})
+  this.setState({currentMovie:newCurrentMovie})
 }
 
 CloseMovieInfo=() =>{
   this.setState({currentMovie:null})
 }
-
-
-
-
-
-
 
 
   render(){
@@ -60,7 +54,7 @@ CloseMovieInfo=() =>{
             <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
             <MovieList viewMovieInfo={this.viewMovieInfo} movies={this.state.movies} />
           </div>
-          : <MovieInfo CloseMovieInfo={this.CloseMovieInfo} />
+          : <MovieInfo currentMovie={this.state.currentMovie} CloseMovieInfo={this.CloseMovieInfo} />
         }
         <Footer />
       </div>
